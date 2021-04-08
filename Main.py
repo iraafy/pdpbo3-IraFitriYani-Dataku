@@ -89,7 +89,13 @@ def submit():
         hsl = "JNE"
     if(ekspedisi.get() == 2):
         hsl = "JNT"
-    dataTable.append(GetData(input1.get(),input2.get(),input3.get(),drop.get(),list(check.hasil()),hsl))
+
+    if((input1.get() != "") and (input2.get() != "") and (input3.get() != "") and (drop.get() != "")):
+        dataTable.append(GetData(input1.get(),input2.get(),input3.get(),drop.get(),list(check.hasil()),hsl))
+        messagebox.showinfo("", "Data Berhasil Dimasukan")
+    else:
+        messagebox.showwarning("", "Data tidak lengkap")
+
     input1.delete(0, END)
     input2.delete(0, END)
     input3.delete(0, END)
